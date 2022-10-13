@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Learn a byte deep in C
+title: Learn a byte deep in C(1)
 mathjax: true
 ---
 > Notice! This passage won't talk a lot of control flow, primitive variable and so on. All here is the message to know code better, the way to deal with memory better, and to be a good tool user(Also good at  Ctrl-C/V, but another perspective! To correct errors)
@@ -22,6 +22,7 @@ Our computer contains important components such as **CPU**, **Memory**, **Device
 These components need to work together to achieve things, and we need to understand them all in order to understand why code and systems behave the way they do.
 ### But
 We are new in CS. We can't digest this part of knowledge. Fine, Let go in **memory** first, and I will try to help you construct what you need.
+
 ## A new way to inspect Computer: Binary
 We like use power of ten in our daily life. But in computer, this black box only use 0 and 1, 😡, what a pity.(Just a joke). 
 #### Position notation
@@ -56,8 +57,7 @@ Our computer is silly! We need to tell the way to transform byte into different 
 int main(int argc, char* argv[]) {  
 //starting point of our program
     if (argc <= 2) {
-        fprintf(stderr, "Usage: add A B\n\
-					    Prints A + B.\n");   
+        fprintf(stderr, "Usage: add A B\nPrints A + B.\n");   
 	// print error message if arguments are missing. "\n" is a newline character!
         exit(1);
     }
@@ -91,8 +91,7 @@ int add(int a, int b);
 
 int main(int argc, char* argv[]) {
     if (argc <= 2) {
-        fprintf(stderr, "Usage: add A B\n\
-    Prints A + B.\n");
+        fprintf(stderr, "Usage: add A B\nPrints A + B.\n");
         exit(1);
     }
 
