@@ -2,6 +2,7 @@
 layout: article
 title: Learn a byte deep in C(1)
 mathjax: true
+permalink: :title
 ---
 > Notice! This passage won't talk a lot of control flow, primitive variable and so on. All here is the message to know code better, the way to deal with memory better, and to be a good tool user(Also good at  Ctrl-C/V, but another perspective! To correct errors)
 
