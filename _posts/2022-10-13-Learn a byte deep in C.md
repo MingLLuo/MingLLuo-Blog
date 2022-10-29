@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Learn a byte deep in C(1)
+title: Learn a byte deep in C
 mathjax: true
 permalink: /:title.html
 ---
@@ -22,13 +22,13 @@ Our computer contains important components such as **CPU**, **Memory**, **Device
 -   **Devices**, which allow the computer to store data across reboots and power failures (harddisks and SSDs) and interact with the outside world (screens, keyboards, speakers, WiFi controllers).
 These components need to work together to achieve things, and we need to understand them all in order to understand why code and systems behave the way they do.
 ### But
-We are new in CS. We can't digest this part of knowledge. Fine, Let go in **memory** first, and I will try to help you construct what you need.
+Let go in **memory** first, try to construct what you need.
 
 ## A new way to inspect Computer: Binary
 We like use power of ten in our daily life. But in computer, this black box only use 0 and 1, 😡, what a pity.(Just a joke). 
 #### Position notation
-A number 123 will be represent as $1\*10^2 + 2 * 10^1 + 3 * 10^0=(123)_{10} $ in **power of ten**.
-In **power of two**, it will be represent as $ 1\*2^6 + 1\*2^5 + 1\*2^4 + 1\*2^3+0\*2^4+1\*2^1+0\*2^0=(1111010)_2 $
+A number 123 will be represent as $1\ast10^2 + 2 * 10^1 + 3 * 10^0=(123)_{10}$ in **power of ten**.
+In **power of two**, it will be represent as $1\ast 2^6 + 1\ast2^5 + 1\ast2^4 + 1\ast2^3+0\ast2^4+1\ast2^1+0\ast2^0=(1111010)_2$
 You may find some interesting things happen when facing arithmetic operation.
 ##### Terminology 
 - We call a unit number base on 0 or 1 a **bit**.
@@ -47,7 +47,7 @@ a **short** take two box to store. an **int** take four.
 
 ## Interpret Bytes in Memory
 >The only place where a computer will store information is **memory**. It's up to the systems software and the programs that the computer runs to decide what these bytes actually **means**. 
-They could be program code, data (integers, strings, images, etc.), or "meta-data" used to build more complex data structures from simple memory boxes. Understanding how complex programs boil down to bytes will help you debug your program, and will make you appreciate why they behave the way they do.
+>They could be program code, data (integers, strings, images, etc.), or "meta-data" used to build more complex data structures from simple memory boxes. Understanding how complex programs boil down to bytes will help you debug your program, and will make you appreciate why they behave the way they do.
 
 Our computer is silly! We need to tell the way to transform byte into different datatype. Or they are the data-bits that wait for invoke.
 ```c
@@ -119,7 +119,7 @@ The CPU needs to know what calculations to run, and we tell it by putting bytes 
 
 And with the right sequence of magic bytes in the right place, we can make almost any piece of data in memory run as code.
 Let's see the function add in addf.c follow these steps.
-1. Type `make`
+1. compile the code
 2. Look magic bytes by `objdump -S addf.o`
 
 You can see the add function encode as these bytes(might be different in different architecture)
@@ -162,7 +162,7 @@ It work! Because we are manually storing **the exact same bytes** in memory th
 ## Pointers!
 An address may occupy 8 bytes. Where would we store such an address? Well, we will store it in a variable itself. Where does that variable live? It better be in memory, too! In other words, the 8 bytes corresponding to the address will **have a memory location of their own**. We refer to such memory locations that hold addresses as **pointers**, because you can think of them as **arrows** pointing to other memory boxes.
 
-In terms of C types, a type followed by an asterisk(\*) corresponds to a pointer. For example, `int*` is a pointer to an integer. An `int*` itself occupies 8 bytes of memory (since it stores an address), and it points to the first byte of a 4-byte sequence of memory boxes that store an `int`.
+In terms of C types, a type followed by an asterisk(\ast) corresponds to a pointer. For example, `int*` is a pointer to an integer. An `int*` itself occupies 8 bytes of memory (since it stores an address), and it points to the first byte of a 4-byte sequence of memory boxes that store an `int`.
 
 Similarly, a `char*` is a pointer to a memory cell that holds a `char` value (`char` is the C type name for a single-byte value). Since strings are represented as **sequences** of 1-byte characters in memory (this is where they type name comes from!), the type of a string in C is actually a pointer to the first character in the string, or a `char*`.
 
